@@ -1,0 +1,166 @@
+object_map:
+- name: Settings
+  objects:
+  - main.c|settings
+- name: LastBoot
+  objects:
+  - main.c|last_boot
+- name: UserPassword
+  objects:
+  - main.c|user_password
+- name: RootPassword
+  objects:
+  - main.c|root_password
+- name: UserEmail
+  objects:
+  - main.c|user_email
+- name: UserAddress
+  objects:
+  - main.c|user_address
+- name: UserDateBirth
+  objects:
+  - main.c|user_db
+subject_map:
+- name: SystemStart
+  subjects:
+  - main.c|system_start
+- name: Init
+  subjects:
+  - main.c|init
+- name: HandleLogin
+  subjects:
+  - main.c|handle_login
+- name: CheckPassword
+  subjects:
+  - main.c|check_password
+- name: StrCmp
+  subjects:
+  - string.h:strcmp
+- name: HandleAction
+  subjects:
+  - main.c|handle_action
+privileges:
+- principal:
+    subject: SystemStart
+    execution_context:
+      uid: root      
+  can_call: [Init]
+  call_counts: [10]
+  can_return: []
+  return_counts: []
+  can_read:
+  - objects: [Settings, LastBoot]
+    counts: [20, 20]
+  can_write:
+  - objects: [LastBoot]
+    counts: [20]
+- principal:
+    subject: Init
+    execution_context:
+     - uid: root
+  can_call: [HandleAction, HandleLogin]
+  call_counts: [3, 7]
+  can_return: [SystemStart]
+  return_counts: [10]
+  can_read:
+  - objects: [Settings]
+    counts: [10]
+  can_write:
+  - objects: []
+    counts: []
+- principal:
+    subject: HandleLogin
+    execution_context:
+      uid: user
+  can_call: [CheckPassword]
+  call_counts: [10]
+  can_return:  [Init]
+  return_counts: [4]
+  can_read:
+  - objects: []
+    counts: []
+  can_write:
+  - objects: []
+    counts: []
+- principal:
+    subject: HandleLogin
+    execution_context:
+      uid: root
+  can_call: [CheckPassword]
+  call_counts: [10]
+  can_return:  [Init]
+  return_counts: [3]
+  can_read:
+  - objects: []
+    counts: []
+  can_write:
+  - objects: []
+    counts: []
+- principal:
+    subject: CheckPassword
+    execution_context:
+      uid: user
+  can_call: [StrCmp]
+  call_counts: [10]
+  can_return:  [HandleLogin]
+  return_counts: [10]
+  can_read:
+  - objects: []
+    counts: []
+  can_write:
+  - objects: []
+    counts: []
+- principal:
+    subject: CheckPassword
+    execution_context:
+      uid: root
+  can_call: [StrCmp]
+  call_counts: [10]
+  can_return:  []
+  return_counts: []
+  can_read:
+  - objects: []
+    counts: []
+  can_write:
+  - objects: []
+    counts: []
+- principal:
+    subject: StrCmp
+    execution_context:
+      uid: user
+  can_call: []
+  call_counts: []
+  can_return:  []
+  return_counts: []
+  can_read:
+  - objects: [UserPassword]
+    counts: [10]
+  can_write:
+  - objects: []
+    counts: []
+- principal:
+    subject: StrCmp
+    execution_context:
+      uid: root
+  can_call: []
+  call_counts: []
+  can_return:  [CheckPassword]
+  return_counts: [5]
+  can_read:
+  - objects: [RootPassword]
+    counts: [10]
+  can_write:
+  - objects: []
+    counts: []
+- principal:
+    subject: HandleAction
+  can_call: []
+  call_counts: []
+  can_return:  [Init]
+  return_counts: [10]
+  can_read:
+  - objects: [UserEmail, UserAddress, UserDateBirth]
+    counts: [10, 10, 10]
+  can_write:
+  - objects: []
+    counts: []
