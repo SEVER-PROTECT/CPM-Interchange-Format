@@ -14,21 +14,23 @@ def read_cpm_format(filename):
         print("Error parsing trace file " + filename)
 
     # Print out the subject map
-    print("subject map:")
+    print("subject_map:")
     for subj_domain in c["subject_map"]:
         sd_name = subj_domain["name"]
         subjects = subj_domain["subjects"]
         print(sd_name + "\n\t" + str(subjects))
-
+    print("\n")
+    
     # Print out the object map
-    print("object map:")
+    print("object_map:")
     for obj_domain in c["object_map"]:
         od_name = obj_domain["name"]
         objects = obj_domain["objects"]
         print(od_name + "\n\t" + str(objects))
-
+    print("\n")
+    
     # Print out the privileges
-    print("Privileges:")
+    print("privileges:")
     for priv in c["privileges"]:
 
         # Read header with principal info
@@ -69,7 +71,6 @@ def read_cpm_format(filename):
             print("\t\tobject_context: " + str(object_context))
 
 if __name__ == '__main__':
-    args = sys.argv
-    if len(args) != 2:
+    if len(sys.argv) != 2:
         raise Exception("Usage: read_format.py <input-yaml>")
     read_cpm_format(sys.argv[1])
