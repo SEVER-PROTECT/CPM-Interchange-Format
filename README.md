@@ -10,17 +10,17 @@ The Python scripts included here use the `pyyaml` package. Install with `pip3 in
 
 This PDF contains the file format specification, definitions, motivating examples, and extensions. Start here.
 
-### Example traces
+### `example-traces`
 
-The `example-traces` folder contains two example traces. Traces are instances of the IF format with the runtime count extension (number of privilege uses) added.
+This folder contains two example traces. Traces are instances of the IF format with the runtime count extension (number of privilege uses) added.
 
 `example-trace-1.yaml` is a small, hand-crafted example privilege trace for a fictional system.
 
-`example-trace-2.yaml` is a trace captured from the Linux kernel from a duration of 20M instructions under the workload of running `bzip2`. It has a valid YAML structure but several limitations: (1) the object and subject identifier strings do not adhere fully to the format, this trace is an early-stage artifact from in-progress tracing infrastructure and (2) not all code and objects that were present in the running system are included in the trace. This trace should be considered an example and not an accurate reflection of Linux behavior.
+`example-trace-2.yaml` is a trace captured from the Linux kernel from a duration of 20M instructions under the workload of running `bzip2`. It has a valid YAML structure but many limitations as it was collected by an early-stage tracing infrastructure. Notably, (1) the object and subject identifier strings do not adhere fully to the format, (2) it contains call data but no return data, and (3) not all code and objects that were present in the running system are included in the trace. This trace should be considered an example and not an accurate reflection of Linux behavior.
 
-### Examples
+### `examples`
 
-The `examples` folder contains two examples of the base	IF format encoding two compartmentalizations. These compartmentalization schemes are generated from clustering tools running on the  `example-trace-2.yaml` trace. The `cluster_2.yaml` compartmentalization has a maximum of 2 functions per cluster, and the `cluster_4.yaml` compartmentalization has a maximum of 4 functions per cluster.
+This folder contains two examples of the base IF format encoding compartmentalizations. These compartmentalization schemes are generated from automatic clustering tools running on the  `example-trace-2.yaml` input trace. The `cluster_2.yaml` compartmentalization has a maximum of 2 functions per cluster, and the `cluster_4.yaml` compartmentalization has a maximum of 4 functions per cluster.
 
 ### `read-format.py`
 This simple Python script parses an IF file and prints it out. It illustrates using `pyyaml` and traversing the IF structure.
