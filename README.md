@@ -6,9 +6,9 @@ The Python scripts included here use the `pyyaml` package. Install with `pip3 in
 
 ## Contents
 
-### `interchange-document.pdf`
+### `interchange-format.pdf`
 
-This PDF contains the file format specification, definitions, motivating examples, and extensions. Start here.
+This PDF contains the interchange file format specification, definitions, motivating examples, and extensions. Start here.
 
 ### `example-traces`
 
