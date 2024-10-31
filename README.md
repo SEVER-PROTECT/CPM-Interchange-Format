@@ -1,7 +1,7 @@
 # CPM-Interchange-Format
 This repo contains the latest Interchange Format (IF) document created by Draper Laboratory and the University of Pennsylvania for DARPA's Compartmentalization and Privilege Management (CPM) program. In addition to the PDF specification, it also contains some example files and scripts for getting started parsing and using the format.
 
-Please sent feedback or questions to Nick Roessler (nroessler@draper.com) and Andre Dehon (andre@acm.org).
+Please send feedback or questions to Nick Roessler (nroessler@draper.com) and Andre Dehon (andre@acm.org).
 
 ## Script setup
 The Python scripts included here use the `pyyaml` package. Install with `pip3 install pyyaml`.
