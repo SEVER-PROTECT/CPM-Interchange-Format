@@ -18,13 +18,19 @@ The current version is 1.1.
 
 This folder contains two example traces. Traces are instances of the IF format with the runtime count extension (number of privilege uses) added.
 
-`example_trace_1.yaml` is a small, hand-crafted example privilege trace for a fictional system.
+`password_example_trace.yaml` is the password example from the IF pdf document. It has some synthetic counts added to it.
 
-`example_trace_2.yaml` is a trace captured from the Linux kernel from a duration of 20M instructions under the workload of running `bzip2`. It has a valid YAML structure but many limitations as it was collected by an early-stage tracing infrastructure. Notably, (1) the object and subject identifier strings do not adhere fully to the format, (2) it contains call data but no return data, and (3) not all code and objects that were present in the running system are included in the trace. This trace should be considered an example and not an accurate reflection of Linux behavior.
+`linux_example_trace.yaml` is a trace captured from the Linux kernel from a duration of 20M instructions under the workload of running `bzip2`. It has a valid YAML structure but many limitations as it was collected by an early-stage tracing infrastructure. Notably, (1) the object and subject identifier strings do not adhere fully to the format, (2) it contains call data but no return data, and (3) not all code and objects that were present in the running system are included in the trace. This trace should be considered an example and not an accurate reflection of Linux behavior.
 
 ### `examples`
 
-This folder contains two examples of the base IF format encoding compartmentalizations. These compartmentalization schemes are generated from automatic clustering tools running on the  `example_trace_2.yaml` input trace. The `cluster_2.yaml` compartmentalization has a maximum of 2 functions per cluster, and the `cluster_4.yaml` compartmentalization has a maximum of 4 functions per cluster.
+This folder contains some example IF yamls for encoding compartmentalizations.
+
+`password_example.yaml` is a manually crated compartmentalization created for the `password_example_trace.yaml` trace. It places the three functions related to password checking together in compartment, and the `main` function in another.
+
+`linux_2.yaml` is a compartmentalization produced from automatic clustering tools on the `linux_example_trace.yaml` data. It is run with a maximum number of functions per compartment of 2.
+
+`linux_4.yaml` is a compartmentalization produced from automatic clustering tools on the `linux_example_trace.yaml` data. It is run with a maximum number of functions per compartment of 4.
 
 ### `read_format.py`
 This simple Python script parses an IF file and prints it out. It illustrates using `pyyaml` and traversing the IF structure.
