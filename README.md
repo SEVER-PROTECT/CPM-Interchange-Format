@@ -26,7 +26,7 @@ This folder contains two example traces. Traces are instances of the IF format w
 
 `password_example_trace.yaml` is the password example from the IF pdf document. It has some synthetic counts added to it.
 
-`linux_example_trace.yaml` is a trace captured from the Linux kernel from a duration of 20M instructions under the workload of running `bzip2`. It has a valid YAML structure but many limitations as it was collected by an early-stage tracing infrastructure. Notably, (1) the object and subject identifier strings do not adhere fully to the format, (2) it contains call data but no return data, and (3) not all code and objects that were present in the running system are included in the trace. This trace should be considered an example and not an accurate reflection of Linux behavior.
+`linux_example_trace.yaml` is a trace that was produced by aggregating 10 runs of BusyBox running `bzip2` for about 250M instructions each. It has a valid YAML structure but many limitations as it was collected by an early-stage tracing infrastructure. Notably, (1) the object and subject identifier strings do not adhere fully to the format, (2) it contains call data but no return data, and (3) not all code and objects that were present in the running system are included in the trace. This trace should be considered an example and not an accurate reflection of Linux behavior.
 
 ### `examples`
 
