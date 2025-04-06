@@ -12,13 +12,11 @@ The Python scripts included here use the `pyyaml` package. Install with `pip3 in
 
 This PDF contains the interchange file format specification, definitions, motivating examples, and extensions. Start here.
 
-The current version is 1.3. 
+The current version is 1.4
 
-Changes introduced in 1.3 include:
-1. A new object ID syntax (Section 5.2)
-2. A new informal grammar (Section 7)
-3. Changes to syntax for none/all representations (Section 7.1)
-4. A subsetting specification (Section 8)
+Changes introduced in 1.4 include:
+1. New subobject syntax (5.2.1)
+2. New size extension (10)
 
 ### `example_traces`
 
