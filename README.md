@@ -14,12 +14,13 @@ The Python scripts included here use the `pyyaml` package. Install with `pip3 in
 
 This PDF contains the interchange file format specification, definitions, motivating examples, and extensions. Start here.
 
-The current version is 1.4
+The current version is 1.5
 
-Changes introduced in 1.4 include:
+Changes introduced in 1.5 include:
 
-1. New subobject syntax (5.2.1)
-2. New size extension (10)
+1. New instruction count extension (Section 11)
+2. New appendix: standalone privilege calculator (Appendix A)
+3. New appendix: security weight file format specification (Appendix B)
 
 ### `example_traces`
 
