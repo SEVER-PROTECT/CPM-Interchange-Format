@@ -14,13 +14,14 @@ The Python scripts included here use the `pyyaml` package. Install with `pip3 in
 
 This PDF contains the interchange file format specification, definitions, motivating examples, and extensions. Start here.
 
-The current version is 1.5
+The current version is 1.6
 
-Changes introduced in 1.5 include:
+Changes introduced in 1.6 include:
 
-1. New instruction count extension (Section 11)
-2. New appendix: standalone privilege calculator (Appendix A)
-3. New appendix: security weight file format specification (Appendix B)
+1. Added new Global Rules extension (Section 10)
+2. Added new Persistent Domains context specification (Section 6.1.2)
+3. Replaced function names with Subject Domain names in Context specification (Section 6)
+4. Added to specification that IF appearance order is used to break ambiguities (Section 6)
 
 ### `example_traces`
 
